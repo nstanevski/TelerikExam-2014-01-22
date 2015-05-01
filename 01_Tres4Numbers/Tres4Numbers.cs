@@ -15,7 +15,6 @@ class Tres4Numbers
             output.Insert(0, tres4Digits[rem]);
             input /= 9;
         }
-        Console.WriteLine("");
         output.Insert(0, tres4Digits[input]);
         Console.WriteLine(output);
     }
