@@ -31,21 +31,25 @@ class Variable_length_code
         {     
             string binCharStr = Convert.ToString(encNum, 2);
             encMsg.Append(binCharStr);
-            //Console.WriteLine(binCharStr);
         }
         //remove trailing zeroes:
         while (encMsg[encMsg.Length - 1] == '0')
             encMsg.Remove(encMsg.Length - 1, 1);
 
+        //split by zeroes and find corresponding map entries:
         string[] onesArr = encMsg.ToString().Split('0');
-        Console.WriteLine(encMsg);
         foreach (string onesEntry in onesArr)
         {
-            //Console.WriteLine(onesEntry);
+            int numOnes = onesEntry.Length;
+            foreach (KeyValuePair<char, int> entry in map)
+            {
+                if (entry.Value == numOnes)
+                {
+                    Console.Write(entry.Key);
+                    break;
+                }
+            }
         }
-        
-           // Console.WriteLine("End");
-
-
+        Console.WriteLine();
     }
 }
