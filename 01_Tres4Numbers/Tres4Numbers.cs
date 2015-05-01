@@ -7,6 +7,17 @@ using System.Text;
     {
         static void Main()
         {
-            string[] tres4Digits = { "LON+","VK-","*ACAD","^MIM","ERIK|","SEY&","EMY>>","/TEL","<<DON"};
+            ulong input = ulong.Parse(Console.ReadLine());
+            string[] tres4Digits = { "LON+", "VK-", "*ACAD", "^MIM", "ERIK|", "SEY&", "EMY>>", "/TEL", "<<DON" };
+            int rem = 0;
+            StringBuilder output = new StringBuilder();
+            while (input >= 9)
+            {
+                rem = (int)input%9;
+                output.Insert(0, tres4Digits[rem]);
+                input /= 9;
+            }
+            output.Insert(0, tres4Digits[input]);
+            Console.WriteLine(output);
         }
     }
